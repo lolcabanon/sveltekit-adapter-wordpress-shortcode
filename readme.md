@@ -24,6 +24,7 @@ const config = {
 			fallback: null,
 			indexPath: "index.php",
 			shadow: false,
+			appendToBody: false,
 			shortcode: "svelte-kit-shortcode",
 			prefix: "skawpsc_svelte_kit_shortcode",
 			renderHead: head =>
@@ -128,6 +129,10 @@ const config = {
 
 module.exports = config
 ```
+
+## Append to body
+
+If set to `true`, the `appendToBody` option will enable the use of `wp_footer` hook to render the content just before the closing `</body>` tag, instead of inline like usual shortcode behavior. This is useful for floating UI components (`position:absolute`) that needs to be rendered outside of any positioned elements.
 
 ## License
 

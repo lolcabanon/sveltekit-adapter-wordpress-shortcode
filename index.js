@@ -12,6 +12,7 @@ export default function ({
 	fallback = null,
 	indexPath = "index.php",
 	shadow = false,
+	appendToBody = false,
 	shortcode = "svelte-kit-shortcode",
 	prefix = "skawpsc_" + shortcode.replace(/[^\w]/g, "_"),
 	renderHead = head =>
@@ -56,6 +57,7 @@ export default function ({
 				replace: {
 					SHORTCODE_CODE: shortcode,
 					SHORTCODE_SHADOW: String(shadow),
+					APPEND_TO_BODY: String(appendToBody),
 					...Object.fromEntries(
 						["shortcodeHead", "shortcodeBody", "shortcodeData"].map(funcName => [
 							`SHORTCODE_PREFIX_${funcName}`,
