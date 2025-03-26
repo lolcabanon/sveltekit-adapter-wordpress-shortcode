@@ -50,7 +50,7 @@ add_shortcode('SHORTCODE_CODE', function ($attributes, $content) {
         add_option('SHORTCODE_PREFIX_content', $result);
         return '';
     } else {
-        return $result
+        return $result;
     }
 });
 
@@ -69,14 +69,14 @@ if (APPEND_TO_BODY) {
     {
         // Récupérez le contenu enregistré
         $content = get_option('SHORTCODE_PREFIX_content');
-        
+
         if ($content) {
             echo $content;
             // Supprimez l'option après l'avoir utilisée
             delete_option('SHORTCODE_PREFIX_content');
         }
-    }   
-    
+    }
+
     add_action('wp_footer', 'SHORTCODE_PREFIX_render_content');
 }
 
