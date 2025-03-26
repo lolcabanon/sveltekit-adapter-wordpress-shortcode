@@ -59,10 +59,9 @@ export default function ({
 					SHORTCODE_SHADOW: String(shadow),
 					APPEND_TO_BODY: String(appendToBody),
 					...Object.fromEntries(
-						["shortcodeHead", "shortcodeBody", "shortcodeData"].map(funcName => [
-							`SHORTCODE_PREFIX_${funcName}`,
-							`${prefix}_${funcName}`
-						])
+						["shortcodeHead", "shortcodeBody", "shortcodeData", "render_content", "content"].map(
+							funcName => [`SHORTCODE_PREFIX_${funcName}`, `${prefix}_${funcName}`]
+						)
 					)
 				}
 			})

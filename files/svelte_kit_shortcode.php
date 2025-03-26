@@ -65,7 +65,7 @@ add_action('wp_head', function () {
 
 if (APPEND_TO_BODY) {
     // Étape 2 : Utiliser un hook pour insérer le contenu dans le <body>
-    function render_SHORTCODE_PREFIX_content()
+    function SHORTCODE_PREFIX_render_content()
     {
         // Récupérez le contenu enregistré
         $content = get_option('SHORTCODE_PREFIX_content');
@@ -76,7 +76,8 @@ if (APPEND_TO_BODY) {
             delete_option('SHORTCODE_PREFIX_content');
         }
     }   
-    add_action('wp_footer', 'render_SHORTCODE_PREFIX_content');
+    
+    add_action('wp_footer', 'SHORTCODE_PREFIX_render_content');
 }
 
 ?>
