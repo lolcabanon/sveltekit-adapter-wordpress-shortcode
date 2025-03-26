@@ -47,7 +47,7 @@ add_shortcode('SHORTCODE_CODE', function ($attributes, $content) {
     }
 
     if (APPEND_TO_BODY) {
-        add_option('SHORTCODE_PREFIX_content', $result);
+        define('SHORTCODE_PREFIX_content', $result);
         return '';
     } else {
         return $result;
@@ -64,16 +64,10 @@ add_action('wp_head', function () {
 });
 
 if (APPEND_TO_BODY) {
-    // Étape 2 : Utiliser un hook pour insérer le contenu dans le <body>
     function SHORTCODE_PREFIX_render_content()
     {
-        // Récupérez le contenu enregistré
-        $content = get_option('SHORTCODE_PREFIX_content');
-
-        if ($content) {
-            echo $content;
-            // Supprimez l'option après l'avoir utilisée
-            delete_option('SHORTCODE_PREFIX_content');
+        if (defined('SHORTCODE_PREFIX_content')) {
+            echo SHORTCODE_PREFIX_content;
         }
     }
 
